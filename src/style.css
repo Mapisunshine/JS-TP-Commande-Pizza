@@ -47,7 +47,47 @@ main {
 }
 .pizzas.slider {
   grid-area: pizzas;
+  /* overflow: hidden; */
 }
+  .slides {
+    position: relative;
+    height: 100%;
+    left: 0;
+    width: calc(100% * 3);
+  }
+  .pizza {
+    height: 100%;
+    position: relative;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% / 3);
+    background: url('./assets/img/bg-pizza.jpg') center no-repeat;
+  }
+  .pizza h1 {
+    user-select: none;
+    text-emphasis: uppercase;
+    text-shadow: 0 2px 2px var(--darken-secondary-color),
+                 -1px 0 2px var(--darken-secondary-color),
+                 0 -1px 2px var(--darken-primary-color),
+                 1px 0 2px var(--darken-primary-color);
+  }
+  .pizza .controls .prev,
+  .pizza .controls .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: 0;
+    transform: translateY(-50%);
+  }
+  .pizza .controls .prev {
+    border-top: 30px solid var(--secondary-color);
+    border-bottom: 30px solid red;
+    border-right: 30px solid green;
+    border-left: 30px solid purple;
+    left: 20px;
+  }
 
 .details {
   grid-area: details;
