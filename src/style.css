@@ -38,7 +38,7 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 320px;
-  gap: 8px 2px;
+  gap: 0 2px;
   grid-template-areas:  "pizzas pizzas pizzas"
                         "details details cart";
 }
@@ -47,13 +47,14 @@ main {
 }
 .pizzas.slider {
   grid-area: pizzas;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
   .slides {
     position: relative;
     height: 100%;
     left: 0;
     width: calc(100% * 3);
+    transition: left .5s ease-in-out;
   }
   .pizza {
     height: 100%;
@@ -64,6 +65,7 @@ main {
     align-items: center;
     width: calc(100% / 3);
     background: url('./assets/img/bg-pizza.jpg') center no-repeat;
+    background-size: cover;
   }
   .pizza h1 {
     user-select: none;
@@ -82,11 +84,18 @@ main {
     transform: translateY(-50%);
   }
   .pizza .controls .prev {
-    border-top: 30px solid var(--secondary-color);
-    border-bottom: 30px solid red;
-    border-right: 30px solid green;
-    border-left: 30px solid purple;
     left: 20px;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-right: 30px solid var(--secondary-color);
+    box-shadow: 4px 0 0 var(--primary-color);
+  }
+  .pizza .controls .next {
+    right: 20px;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 30px solid var(--secondary-color);
+    box-shadow: -4px 0 0 var(--primary-color);
   }
 
 .details {
